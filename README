@@ -1,0 +1,32 @@
+- You can run the code directly using the .jar file or the .class executables, or you can access and compile the source code yourself from the "source" folder.
+
+- The algorithm needs the Loandra solver to be installed.
+
+- There needs to be 3 folders called "clauses", "solutions", and "logs" next to the JAR file.
+
+Parameters:
+
+-d [value]: tree depth
+-print: to print the results
+-weighted [matrix]: misclassification costs (in case of unbalanced costs)
+-support [value]: minimum support
+-margin [value]: minimum margin
+-timeout [value]: timeout limit (in minutes)
+-path [string]: the path to the loandra solver
+-post [string]: a postfix to distinguish the name of the files stored in the three folders
+
+Dataset:
+- The name of the dataset should come at the end of the command
+- The dataset file should be named "instance_[dataset name]"
+- The dataset format is:
+	[n] (size of the dataset)
+	[f] (number of features)
+	[c] (number of labels)
+	each line: first the features and then the label, separated by space
+
+
+Example:
+
+java -jar SAT_Classifier.jar -print -margin 1 -d 2 -post _test -timeout 15 -path ~/SAT_Project/loandra-master/loandra_static cryotherapy
+java -jar SAT_Classifier.jar -weighted 0-2-1-0 -d 3 -post _w immunotherapy
+
